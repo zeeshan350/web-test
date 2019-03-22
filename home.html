@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="data.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+</head>
+<body>
+
+<div class="container">
+        <h1>King's Online - King's College London </h1>
+  <div class="row">
+
+    <script language="javascript">
+      
+          //Sort the list of individuals by last name alphabetical (descending)
+          data.sort(function (a, b) {
+               var Namea = a.lastName.toUpperCase(),
+                   Nameb = b.lastName.toUpperCase();
+                if (Namea > Nameb) {
+                    return -1;
+                }
+          });
+
+          //Sort the cards by the date they joined the team (descending)
+          data.sort(function(a, b) {
+            var JoinDateA = new Date(a.dateJoined), JoinDateB = new Date(b.dateJoined);
+            return JoinDateB- JoinDateA;
+          });
+
+          // Define a loop to access each array element and display it onscreen with HTML code. I have mixed bootstrap css and some of my css style.
+
+          for (i = 0; i < data.length; i++)
+          {
+              var html ='<div class="col-md-4">';
+                  html +='<div class="card mb-3 box-shadow">';
+                  html +='<div class="card-body card-background">';
+                  html +='<div id=image-box></div>';
+                  html +='<p class="card-title"><strong>Full Name: '+ data[i].firstName + ' ' + data[i].lastName + '</strong></p>';
+                  html +='<p class="card-title">Job Title: '+ data[i].jobTitle + '</p>';
+                  html +='<p class="card-title">Reporting to: '+ data[i].reportsTo + '</p>';
+                  html +='</div>';
+                  html +='</div>';
+                  html +='</div>'; 
+
+              document.write(html);
+          }
+
+    </script>
+  </div>
+</div>
+</body>
+</html>
